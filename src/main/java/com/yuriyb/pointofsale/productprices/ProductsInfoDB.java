@@ -7,8 +7,8 @@ import java.util.Map;
 import com.yuriyb.pointofsale.exceptions.UndefinedProductException;
 
 /**
- * ProductsWithPricesStorage class. It describes storage where products with prices are.
- * @version 1.80 12 April 2015
+ * ProductsInfoDB class. It describes storage where products with prices are.
+ * @version 1.05 22 June 2015
  * @author  Yuriy B.
  */
 public class ProductsInfoDB implements IProductsInfoDB {
@@ -36,28 +36,28 @@ public class ProductsInfoDB implements IProductsInfoDB {
 	}
 	
 	/**
-     * Adds the product into ProductsWithPricesStorage in field productsWithCodesMap
+     * Adds the product into ProductsInfoDB in field productsWithCodesMap
      */
 	public void addProduct(Product product){
 		productsCodesMap.put(product.getCode(), product);
 	}
 	
 	/**
-     * Deletes the product from ProductsWithPricesStorage by product code
+     * Deletes the product from ProductsInfoDB by product code
      */
 	public void deleteProduct(String productCode){
 		productsCodesMap.remove(productCode);
 	}
 	
 	/**
-     * Gets the product price from ProductsWithPricesStorage by product code
+     * Gets the product price from ProductsInfoDB by product code
      */
 	public Price getPrice(String productCode) {
 		return productsCodesMap.get(productCode).getPrice();
 	}
 	
 	/**
-     * Checks the product presence in the ProductsWithPricesStorage by product code
+     * Checks the product presence in the ProductsInfoDB by product code
      */
 	public boolean isPresentInStorage(String productCode){
 		Product product = productsCodesMap.get(productCode);
