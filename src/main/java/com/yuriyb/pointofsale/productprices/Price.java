@@ -6,7 +6,7 @@ import java.util.Locale;
 
 /**
  * Price class. It describes product price. It includes currency.
- * @version 1.80 12 April 2015
+ * @version 1.05 22 June 2015
  * @author  Yuriy B.
  */
 public class Price {
