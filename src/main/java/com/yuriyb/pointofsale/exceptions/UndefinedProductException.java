@@ -2,7 +2,7 @@ package com.yuriyb.pointofsale.exceptions;
 
 /**
  * UndefinedProductException class. Written checked exception.
- * @version 1.80 12 April 2015
+ * @version 1.05 22 June 2015
  * @author  Yuriy B.
  */
 public class UndefinedProductException extends Exception {
