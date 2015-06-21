@@ -52,6 +52,7 @@ public class PointOfSale {
      *
      */
 	public void setHandlersChain(List<Handler> handlers){
+		this.handlers = handlers;
 		for(int i=0; i<handlers.size()-1; i++){
 			handlers.get(i).setNext(handlers.get(i+1));
 		}
