@@ -13,30 +13,28 @@ import com.yuriyb.pointofsale.productprices.IProductsInfoDB;
 import com.yuriyb.pointofsale.productprices.Price;
 import com.yuriyb.pointofsale.productprices.Product;
 import com.yuriyb.pointofsale.productprices.ProductsInfoDB;
+import com.yuriyb.pointofsale.tests.integration.DataForTestUtility;
 
 public class Main {
 
 	public static void main(String[] args) throws UndefinedProductException {
-	
-		PointOfSale pos = new PointOfSale();
 		IProductsInfoDB pidb = new ProductsInfoDB();
 		Product product1 = new Product("A", "A product", new Price(new BigDecimal(13.25)));
 		Product product2 = new Product("B", "B product", new Price(new BigDecimal(13.25)));
 		pidb.addProduct(product1);
 		pidb.addProduct(product2);
 		
-		IDisplay display = LCDDisplay.getInstance();
-		IPrinter printer = LaserPrinter.getInstance();
-		BarCodesScaner.getInstance().setProductsPrices(pidb);
-		
-		pos.setDisplay(display);
-		pos.setPrinter(printer);
-		pos.setScaner(BarCodesScaner.getInstance());
-		pos.processInput("A");
-		pos.processInput("B");
-		pos.processInput("");
-		pos.processInput("C");
-		pos.processInput(null);
+		PointOfSaleBuildingDirector director = new PointOfSaleBuildingDirector();
+		PointOfSaleBuilder standartPointOfSale = new StandartPointOfSaleBuilder();
+		director.setPointOfSaleBuilder(standartPointOfSale);
+		director.constructConstructPointOfSale();
+	    director.getPointOfSale().getScaner().setProductsPrices(pidb);
+	    
+		PointOfSale.getInstance().processInput("A");
+		PointOfSale.getInstance().processInput("B");
+		PointOfSale.getInstance().processInput("");
+		PointOfSale.getInstance().processInput("C");
+		PointOfSale.getInstance().processInput(null);
 		
 		System.out.println(BarCodesScaner.getInstance().calculateTotalPrice());
 	}
