@@ -17,8 +17,8 @@ public class ExitHandler implements Handler {
 	@Override
 	public void process(String input) throws UndefinedProductException {
 		if (input == "exit"){
-			LCDDisplay.getInstance().showMessage(" "+BarCodesScaner.getInstance().calculateTotalPrice());
-			LaserPrinter.getInstance().printMessage(""+BarCodesScaner.getInstance().calculateTotalPrice());
+			LCDDisplay.getInstance().showMessage(" !!!!!!!"+BarCodesScaner.getInstance().calculateTotalPrice());
+			LaserPrinter.getInstance().printMessage("!!!!!!"+BarCodesScaner.getInstance().calculateTotalPrice());
 		} else {
 			nextInChainHandler.process(input);
 		}
