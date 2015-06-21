@@ -9,6 +9,9 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
 import com.yuriyb.pointofsale.PointOfSale;
+import com.yuriyb.pointofsale.PointOfSaleBuilder;
+import com.yuriyb.pointofsale.PointOfSaleBuildingDirector;
+import com.yuriyb.pointofsale.StandartPointOfSaleBuilder;
 import com.yuriyb.pointofsale.devices.IScaner;
 import com.yuriyb.pointofsale.devices.LCDDisplay;
 import com.yuriyb.pointofsale.devices.LaserPrinter;
@@ -23,7 +26,7 @@ import java.util.Collection;
 
 /**
  * PointOfSaleTerminalTest class. It has several test methods.
- * @version 1.80 12 April 2015
+ * @version 1.05 22 June 2015
  * @author  Yuriy B.
  */
 @RunWith(Parameterized.class)
@@ -42,11 +45,12 @@ public class POSCodesScanningTest {
 	
 	@Before
 	public void setUp(){
-/*		pos = new PointOfSale();
-		pos.setScaner(Scaner.getInstance());
-		pos.getScaner().setProductsPrices(DataForTestUtility.getProductsInfoDB());
-		pos.setDisplay(LCDDisplay.getInstance());
-		pos.setPrinter(LaserPrinter.getInstance());*/
+		PointOfSaleBuildingDirector director = new PointOfSaleBuildingDirector();
+		PointOfSaleBuilder standartPointOfSale = new StandartPointOfSaleBuilder();
+		director.setPointOfSaleBuilder(standartPointOfSale);
+		director.constructConstructPointOfSale();
+	    pos = director.getPointOfSale();
+	    pos.getScaner().setProductsPrices(DataForTestUtility.getProductsInfoDB());
 	}
 	
 	@After
