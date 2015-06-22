@@ -14,17 +14,17 @@ public class StandartPointOfSaleBuilder extends PointOfSaleBuilder {
 
 	@Override
 	public void buildDisplay() {
-		pos.setDisplay(LCDDisplay.getInstance());
+		pos.setDisplay(new LCDDisplay());
 	}
 
 	@Override
 	public void buildPrinter() {
-		pos.setPrinter(LaserPrinter.getInstance());
+		pos.setPrinter(new LaserPrinter());
 	}
 
 	@Override
 	public void buildScaner() {
-		pos.setScaner(BarCodesScaner.getInstance());	
+		pos.setScaner(new BarCodesScaner());	
 	}
 
 	@Override
