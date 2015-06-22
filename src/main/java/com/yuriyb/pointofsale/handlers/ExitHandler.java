@@ -19,8 +19,8 @@ public class ExitHandler implements Handler {
 		if (input == "exit"){
 			String boughtProducts = PointOfSale.getInstance().getScaner().getReceipt().get("boughtProducts");
 			String totalPriceInReceipt = PointOfSale.getInstance().getScaner().getReceipt().get("totalPrice");
-			LCDDisplay.getInstance().showMessage(boughtProducts+totalPriceInReceipt);
-			LaserPrinter.getInstance().printMessage(totalPriceInReceipt);
+			PointOfSale.getInstance().getDisplay().showMessage(boughtProducts+totalPriceInReceipt);
+			PointOfSale.getInstance().getPrinter().printMessage(totalPriceInReceipt);
 		} else {
 			nextInChainHandler.process(input);
 		}
