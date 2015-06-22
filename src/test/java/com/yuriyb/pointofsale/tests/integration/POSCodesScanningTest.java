@@ -56,7 +56,7 @@ public class POSCodesScanningTest {
 		for (String code : codesForScanning) {
 			PointOfSale.getInstance().processInput(code);
 		}
-		assertEquals(expectedResult, BarCodesScaner.getInstance().calculateTotalPrice());
+		assertEquals(expectedResult, PointOfSale.getInstance().getScaner().calculateTotalPrice());
 	}
 	
 	/**
