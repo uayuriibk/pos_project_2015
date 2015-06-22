@@ -1,5 +1,6 @@
 package com.yuriyb.pointofsale.handlers;
 
+import com.yuriyb.pointofsale.PointOfSale;
 import com.yuriyb.pointofsale.devices.LCDDisplay;
 import com.yuriyb.pointofsale.devices.LaserPrinter;
 import com.yuriyb.pointofsale.devices.BarCodesScaner;
@@ -17,8 +18,10 @@ public class ExitHandler implements Handler {
 	@Override
 	public void process(String input) throws UndefinedProductException {
 		if (input == "exit"){
-			LCDDisplay.getInstance().showMessage(" !!!!!!!"+BarCodesScaner.getInstance().calculateTotalPrice());
-			LaserPrinter.getInstance().printMessage("!!!!!!"+BarCodesScaner.getInstance().calculateTotalPrice());
+			String boughtProducts = PointOfSale.getInstance().getScaner().getReceipt().get("boughtProducts");
+			String totalPriceInReceipt = PointOfSale.getInstance().getScaner().getReceipt().get("totalPrice");
+			LCDDisplay.getInstance().showMessage(boughtProducts+totalPriceInReceipt);
+			LaserPrinter.getInstance().printMessage(totalPriceInReceipt);
 		} else {
 			nextInChainHandler.process(input);
 		}
