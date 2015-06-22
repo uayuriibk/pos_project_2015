@@ -24,7 +24,6 @@ import java.util.Collection;
 public class POSCodesScanningTest {
 	private String[] codesForScanning;
 	private BigDecimal expectedResult;
-	private PointOfSale pos;
 	
 	/**
 	 * Constructor of PointOfSaleTerminalTest class. Creates the instance of this class. 
@@ -45,7 +44,7 @@ public class POSCodesScanningTest {
 	
 	@After
 	public void clearShopingCart(){
-		pos.getScaner().clearScanned();
+		PointOfSale.getInstance().getScaner().clearScanned();
 	}
 	
 	/**
@@ -55,7 +54,7 @@ public class POSCodesScanningTest {
 	@Test
 	public void successfulGetTotal() throws UndefinedProductException {
 		for (String code : codesForScanning) {
-			pos.processInput(code);
+			PointOfSale.getInstance().processInput(code);
 		}
 		assertEquals(expectedResult, BarCodesScaner.getInstance().calculateTotalPrice());
 	}
