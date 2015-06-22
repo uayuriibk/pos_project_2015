@@ -1,8 +1,11 @@
 package com.yuriyb.pointofsale.devices;
 
 import java.math.BigDecimal;
+import java.util.HashMap;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Map;
+
 import com.yuriyb.pointofsale.exceptions.InvalidBarCodeException;
 import com.yuriyb.pointofsale.exceptions.UndefinedProductException;
 import com.yuriyb.pointofsale.productprices.IProductsInfoDB;
@@ -68,5 +71,23 @@ public class BarCodesScaner implements IScaner {
 			totalProductsPrice = totalProductsPrice.add(productPrice);
 		}
 		return totalProductsPrice;
+	}
+	
+	public Map<String,String> getReceipt() throws UndefinedProductException{
+		Map<String, String> resultReceipt = new HashMap<String, String>();
+		StringBuffer receiptBuffer = new StringBuffer();
+		int itemNumber = 1;
+		for(String itemCode: shoppingCart){
+			BigDecimal productPrice = null;
+			String productName = null;
+			productName = productsInfoDB.getProductTitle(itemCode);
+			productPrice = productsInfoDB.getPrice(itemCode).getValue();
+			receiptBuffer.append(itemNumber+":"+productName+":"+productPrice+"//n");
+		}
+		BigDecimal totalProductsPrice = calculateTotalPrice();
+		receiptBuffer.append("Total price: "+totalProductsPrice);
+		resultReceipt.put("boughtProducts", receiptBuffer.toString());
+		resultReceipt.put("totalPrice", "Total Price: "+totalProductsPrice.toString());
+		return resultReceipt;
 	}
 }
