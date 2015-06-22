@@ -1,26 +1,17 @@
 package com.yuriyb.pointofsale.tests.integration;
 
 import static org.junit.Assert.assertEquals;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-
 import com.yuriyb.pointofsale.PointOfSale;
 import com.yuriyb.pointofsale.PointOfSaleBuilder;
 import com.yuriyb.pointofsale.PointOfSaleBuildingDirector;
 import com.yuriyb.pointofsale.StandartPointOfSaleBuilder;
-import com.yuriyb.pointofsale.devices.IScaner;
-import com.yuriyb.pointofsale.devices.LCDDisplay;
-import com.yuriyb.pointofsale.devices.LaserPrinter;
 import com.yuriyb.pointofsale.devices.BarCodesScaner;
 import com.yuriyb.pointofsale.exceptions.UndefinedProductException;
-import com.yuriyb.pointofsale.handlers.ExitHandler;
-import com.yuriyb.pointofsale.handlers.Handler;
-import com.yuriyb.pointofsale.handlers.ScanBarCodeHandler;
-
 import java.math.BigDecimal;
 import java.util.Collection;
 
