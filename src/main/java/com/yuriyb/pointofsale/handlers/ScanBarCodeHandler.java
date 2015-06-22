@@ -1,5 +1,6 @@
 package com.yuriyb.pointofsale.handlers;
 
+import com.yuriyb.pointofsale.PointOfSale;
 import com.yuriyb.pointofsale.devices.LCDDisplay;
 import com.yuriyb.pointofsale.exceptions.InvalidBarCodeException;
 import com.yuriyb.pointofsale.exceptions.UndefinedProductException;
@@ -14,11 +15,11 @@ public class ScanBarCodeHandler implements Handler {
 	@Override
 	public void process(String input) {
 		try {
-			BarCodesScaner.getInstance().scan(input);
+			PointOfSale.getInstance().getScaner().scan(input);
 		} catch (UndefinedProductException upe) {
-			LCDDisplay.getInstance().showMessage(upe.getMessage());
+			PointOfSale.getInstance().getDisplay().showMessage(upe.getMessage());
 		} catch (InvalidBarCodeException ibce) {
-			LCDDisplay.getInstance().showMessage(ibce.getMessage());
+			PointOfSale.getInstance().getDisplay().showMessage(ibce.getMessage());
 		}
 	}
 }
