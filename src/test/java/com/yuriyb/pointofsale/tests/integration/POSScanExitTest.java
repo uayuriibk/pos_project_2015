@@ -30,36 +30,40 @@ public class POSScanExitTest {
 	    director.getPointOfSale().getScaner().setProductsPrices(DataForTestUtility.getProductsInfoDB());
 	}
 	
-	@Test
+/*	@Test
 	public void checkSize(){
 		List<String> inputData = new ArrayList<String>();
 		for(String input:inputData){
 			PointOfSale.getInstance().processInput(input);
 		}
-	}
+	}*/
 	
 	@Test
-	public void scanCodes1(){
-		IPrinter printerSpy = Mockito.spy(LaserPrinter.getInstance());
-		IDisplay displaySpy = Mockito.spy(LCDDisplay.getInstance());
+	public void checkMessagesPrintingAndDisplayingAfterExitInput(){
+		IPrinter printerMock = Mockito.mock(IPrinter.class);
+		IDisplay displayMock = Mockito.mock(IDisplay.class);
+	    PointOfSale.getInstance().setPrinter(printerMock);
+	    PointOfSale.getInstance().setDisplay(displayMock);
+	    
 		List<String> inputData = new ArrayList<String>();
 		inputData.add("A");
 		inputData.add("B");
 		inputData.add("exit");
+		
 		for(String input:inputData){
 			PointOfSale.getInstance().processInput(input);
 		}
 		
-		verify(printerSpy).printMessage("");//доробити
-		verify(displaySpy).showMessage("");
+		verify(printerMock).printMessage("Total Price:3;");
+		verify(displayMock).showMessage("1,Apple,price:1;2,Banan,price:2;Total Price:3;");
 	}
 	
-	@Test
+/*	@Test
 	public void scanCodes(){
 		List<String> inputData = new ArrayList<String>();
 		for(String input:inputData){
 			PointOfSale.getInstance().processInput(input);
 		}
-	}
+	}*/
 	
 }
