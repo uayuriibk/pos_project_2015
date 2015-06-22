@@ -83,6 +83,7 @@ public class BarCodesScaner implements IScaner {
 			productName = productsInfoDB.getProductTitle(itemCode);
 			productPrice = productsInfoDB.getPrice(itemCode).getValue();
 			receiptBuffer.append(itemNumber+":"+productName+":"+productPrice+"\n");
+			itemNumber++;
 		}
 		BigDecimal totalProductsPrice = calculateTotalPrice();
 		receiptBuffer.append("Total price: "+totalProductsPrice);
