@@ -26,10 +26,10 @@ import com.yuriyb.pointofsale.productprices.ProductsInfoDB;
 
 public class POSMessagesOutputingInteractionChekingTest {
 	
-	IPrinter printerMock;
-	IDisplay displayMock;
-	IScaner scanerMock;
-	IProductsInfoDB productInfoDBMock;
+	IPrinter printerSpy;
+	IDisplay displaySpy;
+	IScaner scanerSpy;
+	IProductsInfoDB productInfoDBSpy;
 	
 	@Before
 	public void setUp(){
@@ -38,27 +38,27 @@ public class POSMessagesOutputingInteractionChekingTest {
 		director.setPointOfSaleBuilder(standartPointOfSale);
 		director.constructConstructPointOfSale();
 	   
-	    printerMock = Mockito.spy(new LaserPrinter());
-		displayMock = Mockito.spy(new LCDDisplay());
-		scanerMock = Mockito.spy(new BarCodesScaner());
-		scanerMock = Mockito.spy(new BarCodesScaner());
+	    printerSpy = Mockito.spy(new LaserPrinter());
+		displaySpy = Mockito.spy(new LCDDisplay());
+		scanerSpy = Mockito.spy(new BarCodesScaner());
+		scanerSpy = Mockito.spy(new BarCodesScaner());
 		
-	    PointOfSale.getInstance().setPrinter(printerMock);
-	    PointOfSale.getInstance().setDisplay(displayMock);
-	    PointOfSale.getInstance().setScaner(scanerMock);
+	    PointOfSale.getInstance().setPrinter(printerSpy);
+	    PointOfSale.getInstance().setDisplay(displaySpy);
+	    PointOfSale.getInstance().setScaner(scanerSpy);
 	    director.getPointOfSale().getScaner().setProductsPrices(DataForTestUtility.getProductsInfoDB());
 	}
 	
 	@Test
 	public void checkMessagesDisplayingAfterProductNotFoundException(){
 		PointOfSale.getInstance().processInput("X");
-		verify(displayMock).showMessage("Product not found");
+		verify(displaySpy).showMessage("Product not found");
 	}
 	
 	@Test
 	public void checkMessagesDisplayingAfterInvalidBarCodeException(){
 		PointOfSale.getInstance().processInput("");
-		verify(displayMock).showMessage("Invalid bar-code");
+		verify(displaySpy).showMessage("Invalid bar-code");
 	}
 	
 	@Test
@@ -73,8 +73,8 @@ public class POSMessagesOutputingInteractionChekingTest {
 			PointOfSale.getInstance().processInput(input);
 		}
 		
-		verify(printerMock).printMessage("Total Price:3;");
-		verify(displayMock).showMessage("1,Apple,price:1;2,Banan,price:2;Total Price:3;");
+		verify(printerSpy).printMessage("Total Price:3;");
+		verify(displaySpy).showMessage("1,Apple,price:1;2,Banan,price:2;Total Price:3;");
 	}
 	
 	@Test
@@ -83,7 +83,7 @@ public class POSMessagesOutputingInteractionChekingTest {
 		inputData.add("A");
 		inputData.add("B");
 		inputData.add("exit");
-		verify(scanerMock, timeout(100).times(1)).setProductsPrices(notNull(ProductsInfoDB.class));
+		verify(scanerSpy, timeout(100).times(1)).setProductsPrices(notNull(ProductsInfoDB.class));
 	}
 	
 	@Test
@@ -97,7 +97,7 @@ public class POSMessagesOutputingInteractionChekingTest {
 			PointOfSale.getInstance().processInput(input);
 		}
 		
-		verify(scanerMock, timeout(100).times(2)).scan(anyString());
+		verify(scanerSpy, timeout(100).times(2)).scan(anyString());
 	}
 	
 	@Test
@@ -111,7 +111,7 @@ public class POSMessagesOutputingInteractionChekingTest {
 			PointOfSale.getInstance().processInput(input);
 		}
 		
-		verify(scanerMock, timeout(100).times(1)).getReceipt();
+		verify(scanerSpy, timeout(100).times(1)).getReceipt();
 	}
 	
 	@Test
@@ -125,6 +125,6 @@ public class POSMessagesOutputingInteractionChekingTest {
 			PointOfSale.getInstance().processInput(input);
 		}
 		
-		verify(scanerMock, timeout(100).times(1)).calculateTotalPrice();
+		verify(scanerSpy, timeout(100).times(1)).calculateTotalPrice();
 	}
 }
