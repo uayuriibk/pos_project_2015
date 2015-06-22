@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 import com.yuriyb.pointofsale.devices.IDisplay;
 import com.yuriyb.pointofsale.devices.IPrinter;
-import com.yuriyb.pointofsale.devices.IScaner;
+import com.yuriyb.pointofsale.devices.IScanner;
 import com.yuriyb.pointofsale.devices.LCDDisplay;
 import com.yuriyb.pointofsale.devices.LaserPrinter;
 import com.yuriyb.pointofsale.devices.BarCodesScaner;
@@ -27,7 +27,7 @@ public class Main {
 		PointOfSaleBuildingDirector director = new PointOfSaleBuildingDirector();
 		PointOfSaleBuilder standartPointOfSale = new StandartPointOfSaleBuilder();
 		director.setPointOfSaleBuilder(standartPointOfSale);
-		director.constructConstructPointOfSale();
+		director.constructPointOfSale();
 	    director.getPointOfSale().getScaner().setProductsPrices(pidb);
 	    
 		PointOfSale.getInstance().processInput("A");

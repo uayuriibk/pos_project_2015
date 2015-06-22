@@ -4,8 +4,6 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.yuriyb.pointofsale.exceptions.ProductNotFoundException;
-
 /**
  * ProductsInfoDB class. It describes storage where products with prices are.
  * @version 1.05 22 June 2015
@@ -19,8 +17,7 @@ public class ProductsInfoDB implements IProductsInfoDB {
 	 * Constructor of ProductsInfoDB class.
 	 * Creates an instance of ProductsInfoDB class.
 	 */
-	public ProductsInfoDB() {
-	}
+	public ProductsInfoDB() {}
 	
 	/**
 	 * Constructor of ProductsInfoDB class. 
@@ -63,6 +60,13 @@ public class ProductsInfoDB implements IProductsInfoDB {
 		return productsCodesMap.get(productCode).getTitle();
 	}
 	
+	public Map<String, Product> getProductsCodesMap() {
+		return productsCodesMap;
+	}
+
+	public void setProductsCodesMap(Map<String, Product> productsCodesMap) {
+		this.productsCodesMap = productsCodesMap;
+	}
 	
 	/**
      * Checks the product presence in the ProductsInfoDB by product code

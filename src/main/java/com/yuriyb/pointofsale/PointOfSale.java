@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.yuriyb.pointofsale.devices.IDisplay;
 import com.yuriyb.pointofsale.devices.IPrinter;
-import com.yuriyb.pointofsale.devices.IScaner;
+import com.yuriyb.pointofsale.devices.IScanner;
 import com.yuriyb.pointofsale.exceptions.ProductNotFoundException;
 import com.yuriyb.pointofsale.handlers.Handler;
 
@@ -13,7 +13,7 @@ public class PointOfSale {
 	private static PointOfSale instance = new PointOfSale();
 	private IDisplay display;
 	private IPrinter printer;
-	private IScaner  scaner;
+	private IScanner  scaner;
 	private List<Handler> handlers; 
 	
 	public PointOfSale(){
@@ -35,11 +35,11 @@ public class PointOfSale {
 		this.printer = printer;
 	}
 	
-	public IScaner getScaner() {
+	public IScanner getScaner() {
 		return scaner;
 	}
 	
-	public void setScaner(IScaner scaner) {
+	public void setScaner(IScanner scaner) {
 		this.scaner = scaner;
 	}
 	

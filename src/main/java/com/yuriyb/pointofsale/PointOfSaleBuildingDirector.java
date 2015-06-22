@@ -11,7 +11,7 @@ public class PointOfSaleBuildingDirector {
 			return pointOfSaleBuilder.getPointOfSale();
 		}
 		
-		public void constructConstructPointOfSale(){
+		public void constructPointOfSale(){
 			pointOfSaleBuilder.createNewPointOfSale();
 			pointOfSaleBuilder.buildScaner();
 			pointOfSaleBuilder.buildDisplay();

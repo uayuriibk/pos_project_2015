@@ -15,10 +15,19 @@ import com.yuriyb.pointofsale.productprices.IProductsInfoDB;
  * @version 1.80 12 April 2015
  * @author  Yuriy B.
  */
-public class BarCodesScaner implements IScaner {
+public class BarCodesScaner implements IScanner {
 	private IProductsInfoDB productsInfoDB;
 	private List<String> shoppingCart =  new ArrayList<String>();
 	
+	public List<String> getShoppingCart() {
+		return shoppingCart;
+	}
+
+	public void setShoppingCart(List<String> shoppingCart) {
+		this.shoppingCart = shoppingCart;
+	}
+	
+
 	/**
      * Sets pricing 
      *
@@ -68,9 +77,11 @@ public class BarCodesScaner implements IScaner {
 	}
 	
 	public Map<String,String> getReceipt(){
+		
 		Map<String, String> resultReceipt = new HashMap<String, String>();
 		StringBuffer receiptBuffer = new StringBuffer();
 		int itemNumber = 1;
+		
 		for(String itemCode: shoppingCart){
 			BigDecimal productPrice = null;
 			String productName = null;
@@ -79,9 +90,12 @@ public class BarCodesScaner implements IScaner {
 			receiptBuffer.append(itemNumber+","+productName+",price:"+productPrice+";");
 			++itemNumber;
 		}
+		
 		BigDecimal totalProductsPrice = calculateTotalPrice();
 		resultReceipt.put("boughtProducts",receiptBuffer.toString());
 		resultReceipt.put("totalPrice","Total Price:"+totalProductsPrice.toString()+";");
+		clearScanned();
 		return resultReceipt;
 	}
+	
 }

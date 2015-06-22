@@ -16,7 +16,7 @@ import com.yuriyb.pointofsale.StandartPointOfSaleBuilder;
 import com.yuriyb.pointofsale.devices.BarCodesScaner;
 import com.yuriyb.pointofsale.devices.IDisplay;
 import com.yuriyb.pointofsale.devices.IPrinter;
-import com.yuriyb.pointofsale.devices.IScaner;
+import com.yuriyb.pointofsale.devices.IScanner;
 import com.yuriyb.pointofsale.devices.LCDDisplay;
 import com.yuriyb.pointofsale.devices.LaserPrinter;
 import com.yuriyb.pointofsale.exceptions.InvalidBarCodeException;
@@ -28,7 +28,7 @@ public class POSMessagesOutputingInteractionChekingTest {
 	
 	IPrinter printerSpy;
 	IDisplay displaySpy;
-	IScaner scanerSpy;
+	IScanner scanerSpy;
 	IProductsInfoDB productInfoDBSpy;
 	
 	@Before
@@ -36,7 +36,7 @@ public class POSMessagesOutputingInteractionChekingTest {
 		PointOfSaleBuildingDirector director = new PointOfSaleBuildingDirector();
 		PointOfSaleBuilder standartPointOfSale = new StandartPointOfSaleBuilder();
 		director.setPointOfSaleBuilder(standartPointOfSale);
-		director.constructConstructPointOfSale();
+		director.constructPointOfSale();
 	   
 	    printerSpy = Mockito.spy(new LaserPrinter());
 		displaySpy = Mockito.spy(new LCDDisplay());
