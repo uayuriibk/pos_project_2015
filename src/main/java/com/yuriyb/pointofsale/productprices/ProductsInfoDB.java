@@ -57,6 +57,14 @@ public class ProductsInfoDB implements IProductsInfoDB {
 	}
 	
 	/**
+     * Gets the product title from ProductsInfoDB by product code
+     */
+	public String getProductTitle(String productCode) {
+		return productsCodesMap.get(productCode).getTitle();
+	}
+	
+	
+	/**
      * Checks the product presence in the ProductsInfoDB by product code
      */
 	public boolean isPresentInStorage(String productCode){

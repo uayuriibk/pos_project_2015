@@ -19,6 +19,12 @@ public interface IProductsInfoDB {
 	 * @throws UndefinedProductException 
      */
 	public Price getPrice(String productCode);
+	
+	/**
+     * Gets the product title from IProductsInfoDB by product code
+	 * @throws UndefinedProductException 
+     */
+	public String getProductTitle(String productCode);
 
 	/**
      * Checks the product presence in the IProductsInfoDB by product code
