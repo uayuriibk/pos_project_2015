@@ -1,5 +1,6 @@
 package com.yuriyb.pointofsale.devices;
 
+import java.math.BigDecimal;
 import java.util.Map;
 
 import com.yuriyb.pointofsale.exceptions.InvalidBarCodeException;
@@ -11,4 +12,5 @@ public interface IScaner {
 	public void setProductsPrices(IProductsInfoDB productsInfoDB);
 	public void clearScanned();
 	public Map<String, String> getReceipt() throws UndefinedProductException;
+	public BigDecimal calculateTotalPrice() throws UndefinedProductException;
 }
