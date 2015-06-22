@@ -5,7 +5,7 @@ package com.yuriyb.pointofsale.exceptions;
  * @version 1.05 22 June 2015
  * @author  Yuriy B.
  */
-public class UndefinedProductException extends Exception {
+public class ProductNotFoundException extends Exception {
 	
 	/**
 	 * 
@@ -15,13 +15,13 @@ public class UndefinedProductException extends Exception {
 	/**
      * Creates UndefinedProductException instance
      */
-	public UndefinedProductException(){		
+	public ProductNotFoundException(){		
 	}
 	
 	/**
      * Creates UndefinedProductException instance and put the parameter into super class instance
      */
-	public UndefinedProductException(String message){
+	public ProductNotFoundException(String message){
 		super(message);
 	}
 }
