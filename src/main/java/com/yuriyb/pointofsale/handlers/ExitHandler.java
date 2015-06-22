@@ -3,7 +3,6 @@ package com.yuriyb.pointofsale.handlers;
 import com.yuriyb.pointofsale.PointOfSale;
 import com.yuriyb.pointofsale.devices.LCDDisplay;
 import com.yuriyb.pointofsale.devices.LaserPrinter;
-import com.yuriyb.pointofsale.devices.BarCodesScaner;
 import com.yuriyb.pointofsale.exceptions.UndefinedProductException;
 
 public class ExitHandler implements Handler {
