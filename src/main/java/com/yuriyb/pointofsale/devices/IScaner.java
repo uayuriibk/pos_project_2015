@@ -11,6 +11,6 @@ public interface IScaner {
 	public void scan(String productCode) throws ProductNotFoundException, InvalidBarCodeException;
 	public void setProductsPrices(IProductsInfoDB productsInfoDB);
 	public void clearScanned();
-	public Map<String, String> getReceipt() throws ProductNotFoundException;
-	public BigDecimal calculateTotalPrice() throws ProductNotFoundException;
+	public Map<String, String> getReceipt();
+	public BigDecimal calculateTotalPrice();
 }

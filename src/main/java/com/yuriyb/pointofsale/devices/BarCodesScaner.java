@@ -33,17 +33,16 @@ public class BarCodesScaner implements IScaner {
      *
      * @param productCode  product code 
 	 * @throws InvalidBarCodeException 
+	 * @throws ProductNotFoundException 
      */
-	public void scan(String productCode) throws ProductNotFoundException, InvalidBarCodeException {
-		if ((null==productCode)||(productCode=="")){
+	public void scan(String productCode) throws InvalidBarCodeException, ProductNotFoundException {
+		if ((null == productCode) || (productCode == "")) {
 			throw new InvalidBarCodeException("Invalid bar-code");
-		}
-		else if (!productsInfoDB.isPresentInStorage(productCode)) {
+		} else if (!productsInfoDB.isPresentInStorage(productCode)) {
 			throw new ProductNotFoundException("Product not found");
-		}
-		else {
+		} else {
 			shoppingCart.add(productCode);
-		}	
+		}
 	}
 
 	/**
@@ -56,7 +55,7 @@ public class BarCodesScaner implements IScaner {
 	/**
      * Gets total price of products in the shopping cart
      */
-	public BigDecimal calculateTotalPrice() throws ProductNotFoundException {
+	public BigDecimal calculateTotalPrice(){
 		
 		BigDecimal totalProductsPrice = new BigDecimal(0.00);
 		
@@ -68,7 +67,7 @@ public class BarCodesScaner implements IScaner {
 		return totalProductsPrice;
 	}
 	
-	public Map<String,String> getReceipt() throws ProductNotFoundException{
+	public Map<String,String> getReceipt(){
 		Map<String, String> resultReceipt = new HashMap<String, String>();
 		StringBuffer receiptBuffer = new StringBuffer();
 		int itemNumber = 1;

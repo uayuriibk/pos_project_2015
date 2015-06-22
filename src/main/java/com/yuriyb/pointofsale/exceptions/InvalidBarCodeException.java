@@ -3,7 +3,7 @@ package com.yuriyb.pointofsale.exceptions;
 public class InvalidBarCodeException extends Exception {
 
 	/**
-	 * 
+	 * serialVersionUID
 	 */
 	private static final long serialVersionUID = -4552987095348667371L;
 

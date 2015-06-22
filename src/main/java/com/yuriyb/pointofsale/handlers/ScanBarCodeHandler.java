@@ -1,15 +1,13 @@
 package com.yuriyb.pointofsale.handlers;
 
 import com.yuriyb.pointofsale.PointOfSale;
-import com.yuriyb.pointofsale.devices.LCDDisplay;
 import com.yuriyb.pointofsale.exceptions.InvalidBarCodeException;
 import com.yuriyb.pointofsale.exceptions.ProductNotFoundException;
-import com.yuriyb.pointofsale.devices.BarCodesScaner;
 
 public class ScanBarCodeHandler implements Handler {
 
 	@Override
-	public void setNext(Handler nextInChain) {	
+	public void setNext(Handler nextInChain) {
 	}
 
 	@Override

@@ -1,8 +1,8 @@
 package com.yuriyb.pointofsale.handlers;
 
+import java.util.Map;
+
 import com.yuriyb.pointofsale.PointOfSale;
-import com.yuriyb.pointofsale.devices.LCDDisplay;
-import com.yuriyb.pointofsale.devices.LaserPrinter;
 import com.yuriyb.pointofsale.exceptions.ProductNotFoundException;
 
 public class ExitHandler implements Handler {
@@ -16,9 +16,10 @@ public class ExitHandler implements Handler {
 
 	@Override
 	public void process(String input) throws ProductNotFoundException {
-		if (input == "exit"){
-			String boughtProducts = PointOfSale.getInstance().getScaner().getReceipt().get("boughtProducts");
-			String totalPriceInReceipt = PointOfSale.getInstance().getScaner().getReceipt().get("totalPrice");
+		if ((null!=input)&&(input == "exit")){
+			Map<String,String> receipt = PointOfSale.getInstance().getScaner().getReceipt();
+			String boughtProducts =	receipt.get("boughtProducts");
+			String totalPriceInReceipt = receipt.get("totalPrice");
 			PointOfSale.getInstance().getDisplay().showMessage(boughtProducts+totalPriceInReceipt);
 			PointOfSale.getInstance().getPrinter().printMessage(totalPriceInReceipt);
 		} else {

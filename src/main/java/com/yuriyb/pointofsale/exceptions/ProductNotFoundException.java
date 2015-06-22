@@ -8,7 +8,7 @@ package com.yuriyb.pointofsale.exceptions;
 public class ProductNotFoundException extends Exception {
 	
 	/**
-	 * 
+	 * serialVersionUID
 	 */
 	private static final long serialVersionUID = -2892594339356126640L;
 
