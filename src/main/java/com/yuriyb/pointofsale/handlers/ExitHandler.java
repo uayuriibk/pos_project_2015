@@ -3,7 +3,7 @@ package com.yuriyb.pointofsale.handlers;
 import com.yuriyb.pointofsale.PointOfSale;
 import com.yuriyb.pointofsale.devices.LCDDisplay;
 import com.yuriyb.pointofsale.devices.LaserPrinter;
-import com.yuriyb.pointofsale.exceptions.UndefinedProductException;
+import com.yuriyb.pointofsale.exceptions.ProductNotFoundException;
 
 public class ExitHandler implements Handler {
 	
@@ -15,7 +15,7 @@ public class ExitHandler implements Handler {
 	}
 
 	@Override
-	public void process(String input) throws UndefinedProductException {
+	public void process(String input) throws ProductNotFoundException {
 		if (input == "exit"){
 			String boughtProducts = PointOfSale.getInstance().getScaner().getReceipt().get("boughtProducts");
 			String totalPriceInReceipt = PointOfSale.getInstance().getScaner().getReceipt().get("totalPrice");

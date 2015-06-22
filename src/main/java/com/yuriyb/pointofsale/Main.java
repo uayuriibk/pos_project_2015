@@ -8,7 +8,7 @@ import com.yuriyb.pointofsale.devices.IScaner;
 import com.yuriyb.pointofsale.devices.LCDDisplay;
 import com.yuriyb.pointofsale.devices.LaserPrinter;
 import com.yuriyb.pointofsale.devices.BarCodesScaner;
-import com.yuriyb.pointofsale.exceptions.UndefinedProductException;
+import com.yuriyb.pointofsale.exceptions.ProductNotFoundException;
 import com.yuriyb.pointofsale.productprices.IProductsInfoDB;
 import com.yuriyb.pointofsale.productprices.Price;
 import com.yuriyb.pointofsale.productprices.Product;
@@ -17,7 +17,7 @@ import com.yuriyb.pointofsale.tests.integration.DataForTestUtility;
 
 public class Main {
 
-	public static void main(String[] args) throws UndefinedProductException {
+	public static void main(String[] args) throws ProductNotFoundException {
 		IProductsInfoDB pidb = new ProductsInfoDB();
 		Product product1 = new Product("A", "A product", new Price(new BigDecimal(13.25)));
 		Product product2 = new Product("B", "B product", new Price(new BigDecimal(13.25)));

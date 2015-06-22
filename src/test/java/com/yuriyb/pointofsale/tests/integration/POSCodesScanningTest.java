@@ -11,7 +11,7 @@ import com.yuriyb.pointofsale.PointOfSaleBuilder;
 import com.yuriyb.pointofsale.PointOfSaleBuildingDirector;
 import com.yuriyb.pointofsale.StandartPointOfSaleBuilder;
 import com.yuriyb.pointofsale.devices.BarCodesScaner;
-import com.yuriyb.pointofsale.exceptions.UndefinedProductException;
+import com.yuriyb.pointofsale.exceptions.ProductNotFoundException;
 import java.math.BigDecimal;
 import java.util.Collection;
 
@@ -49,10 +49,10 @@ public class POSCodesScanningTest {
 	
 	/**
 	 * Test method. Verifies the correctness of calculations of total sum
-	 * @throws UndefinedProductException 
+	 * @throws ProductNotFoundException 
 	 */
 	@Test
-	public void successfulGetTotal() throws UndefinedProductException {
+	public void successfulGetTotal() throws ProductNotFoundException {
 		for (String code : codesForScanning) {
 			PointOfSale.getInstance().processInput(code);
 		}

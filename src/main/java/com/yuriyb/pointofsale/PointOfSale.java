@@ -5,7 +5,7 @@ import java.util.List;
 import com.yuriyb.pointofsale.devices.IDisplay;
 import com.yuriyb.pointofsale.devices.IPrinter;
 import com.yuriyb.pointofsale.devices.IScaner;
-import com.yuriyb.pointofsale.exceptions.UndefinedProductException;
+import com.yuriyb.pointofsale.exceptions.ProductNotFoundException;
 import com.yuriyb.pointofsale.handlers.Handler;
 
 public class PointOfSale {
@@ -66,7 +66,7 @@ public class PointOfSale {
 	public void processInput(String input) {
 		try {
 			handlers.get(0).process(input);
-		} catch (UndefinedProductException e) {
+		} catch (ProductNotFoundException e) {
 			e.printStackTrace();
 		}
 	}

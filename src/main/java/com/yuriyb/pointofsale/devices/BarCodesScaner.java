@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import com.yuriyb.pointofsale.exceptions.InvalidBarCodeException;
-import com.yuriyb.pointofsale.exceptions.UndefinedProductException;
+import com.yuriyb.pointofsale.exceptions.ProductNotFoundException;
 import com.yuriyb.pointofsale.productprices.IProductsInfoDB;
 
 /**
@@ -34,12 +34,12 @@ public class BarCodesScaner implements IScaner {
      * @param productCode  product code 
 	 * @throws InvalidBarCodeException 
      */
-	public void scan(String productCode) throws UndefinedProductException, InvalidBarCodeException {
+	public void scan(String productCode) throws ProductNotFoundException, InvalidBarCodeException {
 		if ((null==productCode)||(productCode=="")){
 			throw new InvalidBarCodeException("Invalid bar-code");
 		}
 		else if (!productsInfoDB.isPresentInStorage(productCode)) {
-			throw new UndefinedProductException("Product not found");
+			throw new ProductNotFoundException("Product not found");
 		}
 		else {
 			shoppingCart.add(productCode);
@@ -56,7 +56,7 @@ public class BarCodesScaner implements IScaner {
 	/**
      * Gets total price of products in the shopping cart
      */
-	public BigDecimal calculateTotalPrice() throws UndefinedProductException {
+	public BigDecimal calculateTotalPrice() throws ProductNotFoundException {
 		
 		BigDecimal totalProductsPrice = new BigDecimal(0.00);
 		
@@ -68,7 +68,7 @@ public class BarCodesScaner implements IScaner {
 		return totalProductsPrice;
 	}
 	
-	public Map<String,String> getReceipt() throws UndefinedProductException{
+	public Map<String,String> getReceipt() throws ProductNotFoundException{
 		Map<String, String> resultReceipt = new HashMap<String, String>();
 		StringBuffer receiptBuffer = new StringBuffer();
 		int itemNumber = 1;

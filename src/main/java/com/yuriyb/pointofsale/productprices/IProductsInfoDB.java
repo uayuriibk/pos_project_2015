@@ -1,6 +1,6 @@
 package com.yuriyb.pointofsale.productprices;
 
-import com.yuriyb.pointofsale.exceptions.UndefinedProductException;
+import com.yuriyb.pointofsale.exceptions.ProductNotFoundException;
 
 public interface IProductsInfoDB {
 
@@ -16,13 +16,13 @@ public interface IProductsInfoDB {
 
 	/**
      * Gets the product price from IProductsInfoDB by product code
-	 * @throws UndefinedProductException 
+	 * @throws ProductNotFoundException 
      */
 	public Price getPrice(String productCode);
 	
 	/**
      * Gets the product title from IProductsInfoDB by product code
-	 * @throws UndefinedProductException 
+	 * @throws ProductNotFoundException 
      */
 	public String getProductTitle(String productCode);
 
