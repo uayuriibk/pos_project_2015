@@ -7,7 +7,7 @@ import com.yuriyb.pointofsale.exceptions.InvalidBarCodeException;
 import com.yuriyb.pointofsale.exceptions.ProductNotFoundException;
 import com.yuriyb.pointofsale.productprices.IProductsInfoDB;
 
-public interface IScaner {
+public interface IScanner {
 	public void scan(String productCode) throws ProductNotFoundException, InvalidBarCodeException;
 	public void setProductsPrices(IProductsInfoDB productsInfoDB);
 	public void clearScanned();
