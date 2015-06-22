@@ -36,7 +36,7 @@ public class Main {
 		PointOfSale.getInstance().processInput("C");
 		PointOfSale.getInstance().processInput(null);
 		
-		System.out.println(BarCodesScaner.getInstance().calculateTotalPrice());
+		System.out.println(PointOfSale.getInstance().getScaner().calculateTotalPrice());
 	}
 
 }
