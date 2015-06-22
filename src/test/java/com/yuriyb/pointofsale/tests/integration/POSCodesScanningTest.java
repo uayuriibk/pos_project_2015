@@ -40,8 +40,7 @@ public class POSCodesScanningTest {
 		PointOfSaleBuilder standartPointOfSale = new StandartPointOfSaleBuilder();
 		director.setPointOfSaleBuilder(standartPointOfSale);
 		director.constructConstructPointOfSale();
-	    pos = director.getPointOfSale();
-	    pos.getScaner().setProductsPrices(DataForTestUtility.getProductsInfoDB());
+	    director.getPointOfSale().getScaner().setProductsPrices(DataForTestUtility.getProductsInfoDB());
 	}
 	
 	@After
