@@ -16,13 +16,8 @@ import com.yuriyb.pointofsale.productprices.IProductsInfoDB;
  * @author  Yuriy B.
  */
 public class BarCodesScaner implements IScaner {
-	public static BarCodesScaner instance = new BarCodesScaner();
 	private IProductsInfoDB productsInfoDB;
 	private List<String> shoppingCart =  new ArrayList<String>();
-	
-	public static BarCodesScaner getInstance(){
-		return instance;
-	}
 	
 	/**
      * Sets pricing 
@@ -82,13 +77,12 @@ public class BarCodesScaner implements IScaner {
 			String productName = null;
 			productName = productsInfoDB.getProductTitle(itemCode);
 			productPrice = productsInfoDB.getPrice(itemCode).getValue();
-			receiptBuffer.append(itemNumber+":"+productName+":"+productPrice+"\n");
+			receiptBuffer.append(itemNumber+","+productName+",price:"+productPrice+";");
 			++itemNumber;
 		}
 		BigDecimal totalProductsPrice = calculateTotalPrice();
-		receiptBuffer.append("Total price: "+totalProductsPrice);
-		resultReceipt.put("boughtProducts", receiptBuffer.toString());
-		resultReceipt.put("totalPrice", "Total Price: "+totalProductsPrice.toString());
+		resultReceipt.put("boughtProducts",receiptBuffer.toString());
+		resultReceipt.put("totalPrice","Total Price:"+totalProductsPrice.toString()+";");
 		return resultReceipt;
 	}
 }
