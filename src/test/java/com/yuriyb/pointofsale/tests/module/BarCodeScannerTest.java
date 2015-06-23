@@ -56,7 +56,7 @@ public class BarCodeScannerTest {
 	}
 	
 	@Test
-	public void checkReceipt(){
+	public void checkResultReceipt(){
 		productsInfoMock = Mockito.mock(IProductsInfoDB.class);
 		scanner.setProductsPrices(productsInfoMock);
 		when(productsInfoMock.getProductTitle(anyString())).thenReturn("TestProduct");

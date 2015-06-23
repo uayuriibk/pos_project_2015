@@ -5,7 +5,6 @@ import java.util.List;
 import com.yuriyb.pointofsale.devices.IDisplay;
 import com.yuriyb.pointofsale.devices.IPrinter;
 import com.yuriyb.pointofsale.devices.IScanner;
-import com.yuriyb.pointofsale.exceptions.ProductNotFoundException;
 import com.yuriyb.pointofsale.handlers.Handler;
 
 public class PointOfSale implements IPointOfSale {

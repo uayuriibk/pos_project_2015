@@ -96,6 +96,5 @@ public class BarCodesScaner implements IScanner {
 		resultReceipt.put("totalPrice","Total Price:"+totalProductsPrice.toString()+";");
 		clearScanned();
 		return resultReceipt;
-	}
-	
+	}	
 }

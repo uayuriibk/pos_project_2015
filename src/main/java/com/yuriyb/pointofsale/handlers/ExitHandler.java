@@ -3,7 +3,6 @@ package com.yuriyb.pointofsale.handlers;
 import java.util.Map;
 
 import com.yuriyb.pointofsale.PointOfSale;
-import com.yuriyb.pointofsale.exceptions.ProductNotFoundException;
 
 public class ExitHandler implements Handler {
 	
@@ -16,7 +15,7 @@ public class ExitHandler implements Handler {
 
 	@Override
 	public void process(String input) {
-		if ((null!=input)&&(input == "exit")){
+		if ((null!=input)&&(input=="exit")){
 			Map<String,String> receipt = PointOfSale.getInstance().getScaner().getReceipt();
 			String boughtProducts =	receipt.get("boughtProducts");
 			String totalPriceInReceipt = receipt.get("totalPrice");
