@@ -10,7 +10,6 @@ import com.yuriyb.pointofsale.PointOfSale;
 import com.yuriyb.pointofsale.PointOfSaleBuilder;
 import com.yuriyb.pointofsale.PointOfSaleBuildingDirector;
 import com.yuriyb.pointofsale.StandartPointOfSaleBuilder;
-import com.yuriyb.pointofsale.devices.BarCodesScaner;
 import com.yuriyb.pointofsale.exceptions.ProductNotFoundException;
 import java.math.BigDecimal;
 import java.util.Collection;
