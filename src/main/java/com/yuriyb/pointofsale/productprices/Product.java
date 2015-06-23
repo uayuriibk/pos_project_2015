@@ -1,6 +1,5 @@
 package com.yuriyb.pointofsale.productprices;
 
-
 /**
  * Product class. It describes product.
  * @version 1.05 22 June 2015
