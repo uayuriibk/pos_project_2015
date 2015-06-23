@@ -20,7 +20,7 @@ public class PointOfSale implements IPointOfSale {
 	private IScanner  scaner;
 	private List<Handler> handlers; 
 	
-	public PointOfSale(){
+	private PointOfSale(){
 	}
 	
 	public IDisplay getDisplay() {
