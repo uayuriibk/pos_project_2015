@@ -1,5 +1,10 @@
 package com.yuriyb.pointofsale.exceptions;
 
+/**
+ * InvalidBarCodeException class
+ * @version 1.80 12 April 2015
+ * @author  Yuriy B.
+ */
 public class InvalidBarCodeException extends Exception {
 
 	/**
