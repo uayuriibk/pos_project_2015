@@ -4,7 +4,11 @@ import java.util.Map;
 
 import com.yuriyb.pointofsale.PointOfSale;
 
-
+/**
+ * ExitHandler class
+ * @version 1.80 12 April 2015
+ * @author  Yuriy B.
+ */
 public class ExitHandler implements Handler {
 	
 	private Handler nextInChainHandler;
