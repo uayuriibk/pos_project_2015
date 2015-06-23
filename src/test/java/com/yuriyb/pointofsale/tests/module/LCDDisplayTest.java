@@ -10,8 +10,8 @@ import com.yuriyb.pointofsale.devices.LCDDisplay;
 
 public class LCDDisplayTest {
 	
-	IDisplay display;
-	IDisplay displaySpy;
+	private IDisplay display;
+	private IDisplay displaySpy;
 	
 	@Before
 	public void setUp(){

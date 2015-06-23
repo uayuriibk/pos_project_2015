@@ -11,6 +11,7 @@ import com.yuriyb.pointofsale.devices.IPrinter;
 import com.yuriyb.pointofsale.devices.IScanner;
 import com.yuriyb.pointofsale.handlers.Handler;
 
+//this class in fact is not needed. It was using for experiments only
 public class ForTestingPOSBuilder extends PointOfSaleBuilder {
 
 	@Override

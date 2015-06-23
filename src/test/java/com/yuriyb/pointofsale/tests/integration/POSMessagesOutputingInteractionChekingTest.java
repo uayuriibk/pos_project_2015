@@ -26,10 +26,10 @@ import com.yuriyb.pointofsale.productprices.ProductsInfoDB;
 
 public class POSMessagesOutputingInteractionChekingTest {
 	
-	IPrinter printerSpy;
-	IDisplay displaySpy;
-	IScanner scanerSpy;
-	IProductsInfoDB productInfoDBSpy;
+	private IPrinter printerSpy;
+	private IDisplay displaySpy;
+	private IScanner scanerSpy;
+	private IProductsInfoDB productInfoDBSpy;
 	
 	@Before
 	public void setUp(){

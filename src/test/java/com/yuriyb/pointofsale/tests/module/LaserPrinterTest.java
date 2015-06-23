@@ -11,8 +11,8 @@ import com.yuriyb.pointofsale.devices.LaserPrinter;
 
 public class LaserPrinterTest {
 	
-	IPrinter printer;
-	IPrinter printerSpy;
+	private IPrinter printer;
+	private IPrinter printerSpy;
 	
 	@Before
 	public void setUp(){

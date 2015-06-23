@@ -15,7 +15,7 @@ import com.yuriyb.pointofsale.productprices.ProductsInfoDB;
 
 public class ProductInfoDBTest {
 	
-	ProductsInfoDB productsInfoDB;
+	private ProductsInfoDB productsInfoDB;
 	
 	@Before
 	public void setUp(){

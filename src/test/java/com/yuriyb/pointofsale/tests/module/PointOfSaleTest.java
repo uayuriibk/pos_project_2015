@@ -17,7 +17,7 @@ import com.yuriyb.pointofsale.handlers.ScanBarCodeHandler;
 
 public class PointOfSaleTest {
 	
-	PointOfSale pos;
+	private PointOfSale pos;
 	
 	@Before
 	public void setUp(){

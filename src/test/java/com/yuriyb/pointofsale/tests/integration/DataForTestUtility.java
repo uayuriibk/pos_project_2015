@@ -10,7 +10,7 @@ import com.yuriyb.pointofsale.productprices.ProductsInfoDB;
 
 /**
  * DataForTestUtil class. Utility class which provides data for testing
- * @version 1.80 12 April 2015
+ * @version 1.80 22 June 2015
  * @author  Yuriy B.
  */
 public class DataForTestUtility {

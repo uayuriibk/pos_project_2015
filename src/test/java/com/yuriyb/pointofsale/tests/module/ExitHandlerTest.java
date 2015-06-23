@@ -11,8 +11,8 @@ import com.yuriyb.pointofsale.handlers.Handler;
 
 public class ExitHandlerTest {
 	
-	Handler exitHandler;
-	Handler nextHandler;
+	private Handler exitHandler;
+	private Handler nextHandler;
 	
 	@Before
 	public void setUp(){
