@@ -2,7 +2,7 @@ package com.yuriyb.pointofsale.handlers;
 
 /**
  * Handler interface which will be implemented by handlers
- * @version 1.80 12 April 2015
+ * @version 1.80 22 June 2015
  * @author  Yuriy B.
  */
 public interface Handler {

@@ -4,6 +4,11 @@ import com.yuriyb.pointofsale.PointOfSale;
 import com.yuriyb.pointofsale.exceptions.InvalidBarCodeException;
 import com.yuriyb.pointofsale.exceptions.ProductNotFoundException;
 
+/**
+ * ScanBarCodeHandler class
+ * @version 1.80 22 June 2015
+ * @author  Yuriy B.
+ */
 public class ScanBarCodeHandler implements Handler {
 
 	@Override
