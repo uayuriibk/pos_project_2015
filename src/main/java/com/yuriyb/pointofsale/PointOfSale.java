@@ -63,11 +63,7 @@ public class PointOfSale implements IPointOfSale {
      *
      * @param input  input signal 
      */
-	public void processInput(String input) {
-		try {
+	public void processInput(String input){
 			handlers.get(0).process(input);
-		} catch (ProductNotFoundException e) {
-			e.printStackTrace();
-		}
 	}
 }

@@ -15,7 +15,7 @@ public class ExitHandler implements Handler {
 	}
 
 	@Override
-	public void process(String input) throws ProductNotFoundException {
+	public void process(String input) {
 		if ((null!=input)&&(input == "exit")){
 			Map<String,String> receipt = PointOfSale.getInstance().getScaner().getReceipt();
 			String boughtProducts =	receipt.get("boughtProducts");
