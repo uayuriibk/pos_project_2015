@@ -4,6 +4,7 @@ import java.util.Map;
 
 import com.yuriyb.pointofsale.PointOfSale;
 
+
 public class ExitHandler implements Handler {
 	
 	private Handler nextInChainHandler;

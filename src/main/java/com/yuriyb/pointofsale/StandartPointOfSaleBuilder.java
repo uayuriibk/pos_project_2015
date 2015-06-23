@@ -10,6 +10,12 @@ import com.yuriyb.pointofsale.handlers.ExitHandler;
 import com.yuriyb.pointofsale.handlers.Handler;
 import com.yuriyb.pointofsale.handlers.ScanBarCodeHandler;
 
+/**
+ * StandartPointOfSaleBuilder class. It is used for PointOfSale construction according to
+ * the patter Builder. It is the custom version of the object construction in ordinary cases
+ * @version 1.05 22 June 2015
+ * @author  Yuriy B.
+ */
 public class StandartPointOfSaleBuilder extends PointOfSaleBuilder {
 
 	@Override
