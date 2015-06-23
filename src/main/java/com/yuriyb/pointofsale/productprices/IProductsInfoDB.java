@@ -2,6 +2,11 @@ package com.yuriyb.pointofsale.productprices;
 
 import com.yuriyb.pointofsale.exceptions.ProductNotFoundException;
 
+/**
+ * IProductsInfoDB interface
+ * @version 1.80 22 June 2015
+ * @author  Yuriy B.
+ */
 public interface IProductsInfoDB {
 
 	/**
