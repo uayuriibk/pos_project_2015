@@ -11,7 +11,8 @@ import com.yuriyb.pointofsale.exceptions.ProductNotFoundException;
 import com.yuriyb.pointofsale.productprices.IProductsInfoDB;
 
 /**
- * PointOfSaleTerminal class. It contains methods for products scanning, calculation of prices etc.
+ * BarCodesScaner class. It contains methods for products codes scanning, receipt providing,
+ * total price calculation, previously scanned information deleting etc.
  * @version 1.80 12 April 2015
  * @author  Yuriy B.
  */
@@ -22,16 +23,21 @@ public class BarCodesScaner implements IScanner {
 	public List<String> getShoppingCart() {
 		return shoppingCart;
 	}
-
+	
+	/**
+     * Sets shoppingCart with bar codes of bought products
+     *
+     * @param shoppingCart  contains scanned code of bought products
+     */
 	public void setShoppingCart(List<String> shoppingCart) {
 		this.shoppingCart = shoppingCart;
 	}
 	
 
 	/**
-     * Sets pricing 
+     * Sets information, replaces the DB using 
      *
-     * @param productsInfo  storage of products with prices to work with
+     * @param productsInfoDB is storage of information about products, their prices
      */
 	public void setProductsPrices(IProductsInfoDB productsInfoDB) {
 		this.productsInfoDB = productsInfoDB;
@@ -76,6 +82,9 @@ public class BarCodesScaner implements IScanner {
 		return totalProductsPrice;
 	}
 	
+	/**
+     * Gets Receipt
+     */
 	public Map<String,String> getReceipt(){
 		
 		Map<String, String> resultReceipt = new HashMap<String, String>();
