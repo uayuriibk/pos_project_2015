@@ -28,13 +28,15 @@ public class PointOfSaleTest {
 	public void testInputProcessingByFirstHandlerInTheChain() throws ProductNotFoundException{
 		Handler exitHandlerMock = Mockito.mock(ExitHandler.class);
 		Handler scanBarCodeHandlerMock = Mockito.mock(ScanBarCodeHandler.class);
+		
 		List<Handler> handlersCollection = new ArrayList<Handler>();
+		
 		handlersCollection.add(exitHandlerMock);
 		handlersCollection.add(scanBarCodeHandlerMock);
 		pos.setHandlersChain(handlersCollection);
 		pos.processInput("Test Input");
+		
 		verify(exitHandlerMock, times(1)).process(anyString());
 		verify(scanBarCodeHandlerMock, times(0)).process(anyString());
 	}
-	
 }
