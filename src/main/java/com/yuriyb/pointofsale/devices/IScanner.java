@@ -7,6 +7,11 @@ import com.yuriyb.pointofsale.exceptions.InvalidBarCodeException;
 import com.yuriyb.pointofsale.exceptions.ProductNotFoundException;
 import com.yuriyb.pointofsale.productprices.IProductsInfoDB;
 
+/**
+ * IScanner interface. It contains methods of scanner for implementation
+ * @version 1.80 12 April 2015
+ * @author  Yuriy B.
+ */
 public interface IScanner {
 	public void scan(String productCode) throws ProductNotFoundException, InvalidBarCodeException;
 	public void setProductsPrices(IProductsInfoDB productsInfoDB);
