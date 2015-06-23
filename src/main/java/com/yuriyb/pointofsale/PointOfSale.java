@@ -8,7 +8,7 @@ import com.yuriyb.pointofsale.devices.IScanner;
 import com.yuriyb.pointofsale.exceptions.ProductNotFoundException;
 import com.yuriyb.pointofsale.handlers.Handler;
 
-public class PointOfSale {
+public class PointOfSale implements IPointOfSale {
 
 	private static PointOfSale instance = new PointOfSale();
 	private IDisplay display;
