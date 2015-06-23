@@ -8,7 +8,7 @@ import com.yuriyb.pointofsale.devices.IScanner;
 import com.yuriyb.pointofsale.handlers.Handler;
 
 /**
- * PointOfSale class. It describes Point Of Sale
+ * PointOfSale class. It describes Point Of Sale. Created according to the pattern Singleton
  * @version 1.05 22 June 2015
  * @author  Yuriy B.
  */
