@@ -6,7 +6,7 @@ import com.yuriyb.pointofsale.PointOfSale;
 
 /**
  * ExitHandler class
- * @version 1.80 12 April 2015
+ * @version 1.80 22 June 2015
  * @author  Yuriy B.
  */
 public class ExitHandler implements Handler {
