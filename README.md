@@ -1,5 +1,5 @@
 # pos_project
-OOP, Design Patterns, JUnit, Mockito, maven etc.
+OOP, Design Patterns, JUnit, Mockito, maven, Eclipse etc.
 Project: implementation of PointOfSale.
 
 The code coverage screen is present in the project folder.
